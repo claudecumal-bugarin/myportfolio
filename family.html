@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude's Family - stories and memories!">
+    <title>Claude's Family</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Arial:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #757C88, #5D6D7E);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Bernard MT Condensed', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8em;
+            margin-top: 30px;
+            color: #FFD700;
+        }
+        img {
+            width: 3%;
+            height: 3%;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        img:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        p {
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in;
+            font-size: 1.1em;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 20%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05); /* No jumping, just scale */
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #FFA500;
+        }
+        .back-btn {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #16A085;
+            transform: scale(1.05);
+        }
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: twinkle 4s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            p { font-size: 1em; }
+            .gallery img { width: 45%; }
+        }
+    </style>
+</head>
+<body>
+    <h1><u><b><img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\baby\baby3.png"> Claude's Family <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\baby\baby4.png"></u></b></h1>
+    
+    <h2>My Twin Sisters: Nathalie & Neriza</h2>
+    <p>Let’s start with my ultimate stress relievers and stress inducers: my 4-year-old twin sisters, Nathalie (Thalie) and Neriza (Isay).
+    Every day with them is a mix of “Pangit ka!” wars, WWE-level food fights, and tickle sessions that end with someone crying (spoiler: it’s never me 😤).
+    Thalie’s the master of stealing my fries, while Isay’s the queen of dramatic tantrums. Pero kahit na ang kulit nila, sila ang dahilan kung bakit hindi ako sumusuko sa buhay.
+    Literal na “pagod ka na sa mundo, tapos titingin ka sa kanila… okay na ulit” moments. 🥹</p>
+    
+    <p>Nung baby pa sila, grabe ang cuteness overload! Pero ang bigat nila, beh! Parang nagbuhat ako ng sack of rice na may ngiti.
+    🥲 Wala akong baby pics nila na maipagmamalaki, pero trust me, sila ang pinaka-makulit at chubby na twins sa universe.
+    Ngayon, ang bilis na nila tumakbo—parang may turbo boosters! Ako? Hingal na agad after 5 steps. Aging is real, bes.</p>
+    
+    <h2>My Sisters: Jenny & Elyssa</h2>
+    <p>Si Ate Jenny naman, ang ate kong naging bestie after a week of being trapped together sa bahay.
+    Dati, parang kami ni Ate ay “roommates na walang eye contact” 😅. Pero nung naging The Parent Trap kami (minus the twin swap), biglang nagkaalaman! Ngayon, 
+    daily chikahan about crushes, family tea, at mga “Tangina, ang toxic pala natin?” realizations. Solidarity in chaos, ika nga.</p>
+    
+    <p>Enter Ate Elyssa, my panganay na ate na parang villain sa teleserye namin. 
+    💔 February 21, 2025—core memory unlocked. Nag-away kami over a TABLET (yes, sis, TABLET). Ang ending? Bugbugan na may special guest: pako sa study table! 💥 
+    Ako? Sugatan, duguan, at umiiyak sa sulok. Siya? Kinomport ng parents. Ako? Sinabihan ng “Sumagot ka kasi!” Grabe, parang ako ang kontrabida sa sarili kong buhay.</p>
+    
+    <h2>My Parents: Mama Amelita & Papa Zaldy</h2>
+    <p>Shoutout kay Mama Amelita at Papa Zaldy—ang “sweet today, strict tomorrow” duo. Minsan, super caring nila (lalo na pag may handaan).
+    Pero pag dating sa pagiging bisexual ko? “Badíng ka kasi! Kaya ka binubully!” 😤 Religious sila, kaya ang love story dapat: boy meets girl, periodt. Pero ako? Love is love, periodt with glitter.</p>
+    
+    <p>Grade 3 to Grade 5: 2 years of bullying na walang nakahalata. Invisible battle sa school. Cutting classes, tambay sa computer shop, 
+    iyak sa CR—wala silang idea. Hanggang ngayon, di ko ma-explain sa kanila kung bakit ako naging “rebelde” noon. Bakit? Takot ako na sasabihin lang nilang “kasalanan mo rin ’yan”.</p>
+    
+    <h2>Reflections & Hope</h2>
+    <p>Pero alam mo, beh? Dahil sa trauma, naging survivor ako. Yung pain ko noon, naging lakas ngayon. 
+    Kahit na ang toxic ng pamilya, natutunan kong maging “independent queen”. Nag-e-ML ako para may pang-load sa online class, nagtrabaho nang patago para may pambili ng pagkain ng mga kambal. Laban lang, walang personalan.</p>
+    
+    <p>Si Thalie at Isay ang liwanag ko sa madilim na bahagi ng pamilya. Every time na tinatawag nila akong “Kuya”, 
+    parang may bumabalik na hope sa puso ko. Kahit na wala akong maibigay na mamahaling laruan, pinaparamdam ko sa kanila na may taong nagmamahal sa kanila nang buo. Sila ang future ko.</p>
+    
+    <p>Kay Ate Elyssa, hindi ko alam kung kailan ako makakapagpatawad. Yung mga salita niyang “walang kwenta ka” at “bobo”,
+    parang kutsilyong tumatakip sa dibdib ko. Pero sabi nga, “Hurt people hurt people.” Maybe she’s battling her own demons too. Pero sana, one day, magkaayos kami—para sa mga kambal.</p>
+    
+    <p>Sa huli, ang pamilya ko ay parang mixed CD: may upbeat tracks, may sad songs, at maraming “skip” moments. 
+    Pero kahit na ang gulo, may pag-asa akong bubuti ang lahat. Pangarap ko? Makatapos ng pag-aaral, magka-work, at i-spoil ang mga kambal. At kung sakaling magka-pamilya ako balang araw, ibang-iba ang kwento namin.</p>
+    
+    <h2>Cumal Familyꨄ︎</h2>
+    <div class="gallery">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\family\IMG_20250109_190207_801.jpg">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\family\IMG_20250109_190213_075.jpg">
+    </div>
+    
+    <br><a href="family_album.html">₊✩‧₊˚౨ৎ˚₊✩‧₊Family Album₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    <br><a href="index.html" class="back-btn">₊✩‧₊˚౨ৎ˚₊✩‧₊Back to homepage₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    
+    <div id="stars"></div>
+    
+    <script>
+        const galleryImgs = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '✨';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

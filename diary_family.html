@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary - Family</title>
+    <style>
+        body {
+            background: #000000;
+            font-family: 'Arial', sans-serif;
+            color: #ff0000;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+        .editable {
+            border: 1px dashed #ff0000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .comment-section {
+            margin-top: 50px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #333;
+            color: white;
+            border: 1px solid #ff0000;
+        }
+        button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .comments {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .comment {
+            background: #333;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment-content {
+            flex: 1;
+        }
+        .comment-actions {
+            display: flex;
+            gap: 5px;
+        }
+        .owner-hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="diary_homepage.html" class="back-btn">Back to Diary Home</a>
+    <h1>Family Diary</h1>
+    <div id="content">
+        <p class="editable" contenteditable="false">Hi, I’m Claude... [Your bio here]</p>
+        <!-- Add more sections -->
+    </div>
+    <div class="comment-section">
+        <h2>Comments</h2>
+        <div id="comment-input-section">
+            <textarea id="comment-input" placeholder="Add a comment..."></textarea>
+            <button onclick="addComment()">Submit Comment</button>
+        </div>
+        <div id="comments-list" class="comments"></div>
+    </div>
+
+    <script>
+        const user = localStorage.getItem('currentUser');
+        
+        // Load saved content for all users
+        const saved = localStorage.getItem('diary_personal');
+        if (saved) {
+            document.querySelector('.editable').innerHTML = saved;
+        }
+        
+        if (user === 'magandaako17') {
+            document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+            // Save edits
+            document.querySelectorAll('.editable').forEach(el => {
+                el.addEventListener('blur', () => {
+                    localStorage.setItem('diary_personal', el.innerHTML);
+                });
+            });
+            // Hide comment input for owner
+            document.getElementById('comment-input-section').style.display = 'none';
+        }
+
+        // Comments
+        function addComment() {
+            const comment = document.getElementById('comment-input').value;
+            if (comment) {
+                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                comments.push({ user, comment, date: new Date().toLocaleString(), id: Date.now() });
+                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                document.getElementById('comment-input').value = '';
+                loadComments();
+            }
+        }
+
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            const list = document.getElementById('comments-list');
+            list.innerHTML = comments.map((c, index) => {
+                let actions = '';
+                if (user === 'magandaako17' || user === c.user) {
+                    actions += `<button onclick="editComment(${index})">Edit</button>`;
+                }
+                if (user === 'magandaako17') {
+                    actions += `<button onclick="deleteComment(${index})">Delete</button>`;
+                }
+                return `<div class="comment">
+                    <div class="comment-content" id="comment-${index}"><strong>${c.user}:</strong> ${c.comment} <small>(${c.date})</small></div>
+                    <div class="comment-actions">${actions}</div>
+                </div>`;
+            }).join('');
+        }
+
+        function editComment(index) {
+            const commentDiv = document.getElementById(`comment-${index}`);
+            const originalText = commentDiv.innerHTML;
+            const currentComment = originalText.replace(/<[^>]*>/g, '').split(': ')[1].split(' <small>')[0];
+            commentDiv.innerHTML = `<textarea id="edit-${index}" style="width: 100%; height: 60px; background: #333; color: white; border: 1px solid #ff0000;">${currentComment}</textarea><button onclick="saveEdit(${index})">Save</button><button onclick="cancelEdit(${index}, '${originalText.replace(/'/g, "\\'")}')">Cancel</button>`;
+        }
+
+        function saveEdit(index) {
+            const newComment = document.getElementById(`edit-${index}`).value;
+            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            comments[index].comment = newComment;
+            localStorage.setItem('comments_personal', JSON.stringify(comments));
+            loadComments();
+        }
+
+        function cancelEdit(index, originalText) {
+            document.getElementById(`comment-${index}`).innerHTML = originalText;
+        }
+
+        function deleteComment(index) {
+            if (confirm('Delete this comment?')) {
+                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                comments.splice(index, 1);
+                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                loadComments();
+            }
+        }
+
+        loadComments();
+    </script>
+</body>
+</html>

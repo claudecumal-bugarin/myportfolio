@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude's Collection - favorites and MLBB archive!">
+    <title>Claude's Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #757C88, #5D6D7E);
+            font-family: 'Fredoka One', cursive;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Bernard MT Condensed', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in;
+            font-size: 1.1em;
+        }
+        img {
+            width: 3%;
+            height: 3%;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        img:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            animation: fadeIn 2s ease-in;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #FFD700;
+        }
+        th {
+            background-color: #FFD700;
+            color: #757C88;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #757C88;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #FFA500;
+        }
+        .back-btn {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #16A085;
+            transform: scale(1.05);
+        }
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: twinkle 4s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1em; }
+            table { font-size: 0.9em; }
+            .modal-content { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <h1><u><b><img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\baby\baby3.png">My collection/favorites<img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\baby\baby4.png"></u></b></h1>
+    
+    <p>Yo, I’m just your average Grade 11 TVL ICT student vibing through life. School’s all about HTML tags, Python loops, and borrowing computer lab time like it’s a limited-edition MLBB skin 🖥️✨. 
+    After class? I morph into a Kagura main—grinding Mythic ranks, predicting ganks, and carrying randoms like it’s my part-time job 🎮💅. Coding’s cool, but nothing beats the adrenaline of a savage play.</p>
+    
+    <p>Home’s where the real chaos is: my 4-year-old kambal siblings. These two are my tiny partners-in-crime (and victims 😈). I live for pranking them—hiding their toys, gaslighting them about snack quotas 
+    (“Last chicken nugget? Ate ko na ‘yan!” 🍗), or convincing them Cocomelon’s canceled. Their meltdowns? Comedy gold. But hey, I’m also their go-to IT support when “Kuya, ayaw mag-work ni Peppa Pig sa tablet!” 👶🏽👶🏻.</p>
+    
+    <p>When I’m not coding, gaming, or trolling toddlers, I’m smashing shuttlecocks in badminton 🏸. No pressure, just vibes—swinging a racket is my therapy. And yeah, I dabble in public speaking too.
+    Some days I’m “Mic drop, y’all!” 🎤; other days I’m like, “Wait, bat ako nandito?” 😅 But whether I’m onstage or babysitting, life’s all about laughing at the chaos.</p>
+    
+    <h1>MLLB ARCHIVE</h1>
+    <table border="5">
+        <tr>
+            <th>Season</th>
+            <th>Rank</th>
+            <th>Matches</th>
+            <th>Winrate</th>
+        </tr>
+        <tr onclick="openModal('S18', 'Epic V', '57', '73.7%', 'Season 18: Epic V rank, 57 matches, 73.7% winrate. Kagura main grind!')"> 
+            <td>S18</td>
+            <td>Epic V</td>
+            <td>57</td>
+            <td>73.7%</td>
+        </tr>
+        <tr onclick="openModal('S19', 'Legend IV', '136', '54.4%', 'Season 19: Legend IV rank, 136 matches, 54.4% winrate. Tough climb!')"> 
+            <td>S19</td>
+            <td>Legend IV</td>
+            <td>136</td>
+            <td>54.4%</td>
+        </tr>
+        <tr onclick="openModal('S20', 'Mythic IV', '107', '65.4%', 'Season 20: Mythic IV rank, 107 matches, 65.4% winrate. Getting better!')"> 
+            <td>S20</td>
+            <td>Mythic IV</td>
+            <td>107</td>
+            <td>65.4%</td>
+        </tr>
+        <tr onclick="openModal('S21', 'Mythic IV', '125', '62.4%', 'Season 21: Mythic IV rank, 125 matches, 62.4% winrate. Consistent plays.')"> 
+            <td>S21</td>
+            <td>Mythic IV</td>
+            <td>125</td>
+            <td>62.4%</td>
+        </tr>
+        <tr onclick="openModal('S22', 'Mythic V', '56', '76.8%', 'Season 22: Mythic V rank, 56 matches, 76.8% winrate. Savage mode!')"> 
+            <td>S22</td>
+            <td>Mythic V</td>
+            <td>56</td>
+            <td>76.8%</td>
+        </tr>
+        <tr onclick="openModal('S23', 'Mythic IV', '178', '57.9%', 'Season 23: Mythic IV rank, 178 matches, 57.9% winrate. Long grind.')"> 
+            <td>S23</td>
+            <td>Mythic IV</td>
+            <td>178</td>
+            <td>57.9%</td>
+        </tr>
+        <tr onclick="openModal('S24', 'Legend 1', '118', '55.1%', 'Season 24: Legend 1 rank, 118 matches, 55.1% winrate. Close to Mythic!')"> 
+            <td>S24</td>
+            <td>Legend 1</td>
+            <td>118</td>
+            <td>55.1%</td>
+        </tr>
+        <tr onclick="openModal('S25', 'Legend v', '48', '56.2%', 'Season 25: Legend V rank, 48 matches, 56.2% winrate. Quick season.')"> 
+            <td>S25</td>
+            <td>Legend v</td>
+            <td>48</td>
+            <td>56.2</td>
+        </tr>
+        <tr onclick="openModal('S26', 'Legend III', '58', '58.6%', 'Season 26: Legend III rank, 58 matches, 58.6% winrate. Steady progress.')"> 
+            <td>S26</td>
+            <td>Legend III</td>
+            <td>58</td>
+            <td>58.6%</td>
+        </tr>
+        <tr onclick="openModal('S27', 'Mythic IV', '86', '69.8%', 'Season 27: Mythic IV rank, 86 matches, 69.8% winrate. High winrate!')"> 
+            <td>S27</td>
+            <td>Mythic IV</td>
+            <td>86</td>
+            <td>69.8%</td>
+        </tr>
+        <tr onclick="openModal('S28', 'Mythic', '146', '54.8%', 'Season 28: Mythic rank, 146 matches, 54.8% winrate. Maintained rank.')"> 
+            <td>S28</td>
+            <td>Mythic</td>
+            <td>146</td>
+            <td>54.8%%</td>
+        </tr>
+        <tr onclick="openModal('S29', 'Legend II', '103', '53.4%', 'Season 29: Legend II rank, 103 matches, 53.4% winrate. Decent run.')"> 
+            <td>S29</td>
+            <td>Legend II</td>
+            <td>103</td>
+            <td>53.4%</td>
+        </tr>
+        <tr onclick="openModal('S30', 'Mythic', '80', '62.5%', 'Season 30: Mythic rank, 80 matches, 62.5% winrate. Solid performance.')"> 
+            <td>S30</td>
+            <td>Mythic</td>
+            <td>80</td>
+            <td>62.5%</td>
+        </tr>
+        <tr onclick="openModal('S31', 'Mythical Glory', '172', '68%', 'Season 31: Mythical Glory rank, 172 matches, 68% winrate. Glory achieved!')"> 
+            <td>S31</td>
+            <td>Mythical Glory</td>
+            <td>172</td>
+            <td>68%</td>
+        </tr>
+        <tr onclick="openModal('S32', 'Mythical Immortal', '344', '63.7%', 'Season 32: Mythical Immortal rank, 344 matches, 63.7% winrate. Immortal status!')"> 
+            <td>S32</td>
+            <td>Mythical Immortal</td>
+            <td>344</td>
+            <td>63.7%</td>
+        </tr>
+        <tr onclick="openModal('S33', 'Mythical Immortal', '424', '58.7%', 'Season 33: Mythical Immortal rank, 424 matches, 58.7% winrate. Consistent Immortal.')"> 
+            <td>S33</td>
+            <td>Mythical Immortal</td>
+            <td>424</td>
+            <td>58.7%</td>
+        </tr>
+        <tr onclick="openModal('S34', 'Mythical Honor', '235', '55.7%', 'Season 34: Mythical Honor rank, 235 matches, 55.7% winrate. Honorable rank.')"> 
+            <td>S34</td>
+            <td>Mythical Honor</td>
+            <td>235</td>
+            <td>55.7%</td>
+        </tr>
+        <tr onclick="openModal('S35', 'Mythical Honor', '239', '54.8%', 'Season 35: Mythical Honor rank, 239 matches, 54.8% winrate. Maintained honor.')"> 
+            <td>S35</td>
+            <td>Mythical Honor</td>
+            <td>239</td>
+            <td>54.8%</td>
+        </tr>
+        <tr onclick="openModal('S36', 'Mythical Immortal', '666', '54.7%', 'Season 36: Mythical Immortal rank, 666 matches, 54.7% winrate. Epic matches!')"> 
+            <td>S36</td>
+            <td>Mythical Immortal</td>
+            <td>666</td>
+            <td>54.7%</td>
+        </tr>
+        <tr onclick="openModal('S37', 'Mythical Immortal', '509', '63.9%', 'Season 37: Mythical Immortal rank, 509 matches, 63.9% winrate. Final Immortal!')"> 
+            <td>S37</td>
+            <td>Mythical Immortal</td>
+            <td>509</td>
+            <td>63.9%</td>
+        </tr>
+    </table>
+    
+    <br><a href="collection_album.html">₊✩‧₊˚౨ৎ˚₊✩‧₊Collection Album✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    <br><a href="index.html" class="back-btn">₊✩‧₊˚౨ৎ˚₊✩‧₊Back to homepage₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-pic"></div>
+            <h2 id="modal-title"></h2>
+            <p id="modal-info"></p>
+        </div>
+    </div>
+    
+    <div id="stars"></div>
+    
+    <script>
+        function openModal(season, rank, matches, winrate, info, imgSrc = '') {
+            document.getElementById('modal-title').textContent = season + ' - ' + rank;
+            document.getElementById('modal-info').textContent = 'Matches: ' + matches + ', Winrate: ' + winrate + '. ' + info;
+            const picDiv = document.getElementById('modal-pic');
+            if (imgSrc) {
+                picDiv.innerHTML = '<img src="' + imgSrc + '" alt="' + season + ' pic">';
+            } else {
+                picDiv.innerHTML = '';
+            }
+            document.getElementById('modal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+		}
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '✨';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

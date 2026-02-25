@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Family Album - memories and pics!">
+    <title>Family Album</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+       body {
+            background: linear-gradient(135deg, #757C88, #5D6D7E);
+            font-family: 'Fredoka One', cursive;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .large {
+            grid-column: span 2;
+        }
+        .medium {
+            grid-column: span 1;
+        }
+        .small {
+            grid-column: span 1;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .back-btn {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #16A085;
+            transform: scale(1.05);
+        }
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: twinkle 4s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .large { grid-column: span 1; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250728_202945_127.jpg" alt="Family pic 1">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250728_202955_863.jpg" alt="Family pic 2">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250728_203119_915.jpg" alt="Family pic 3">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250107_002659_624.jpg" alt="Family pic 4">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_160805_481.webp" alt="Family pic 5">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_160651_955.webp" alt="Family pic 6">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_160637_137.webp" alt="Family pic 7">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155637_7.jpg" alt="Family pic 8">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155622_7.jpg" alt="Family pic 9">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155259_214.jpg" alt="Family pic 10">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155306_653.jpg" alt="Family pic 11">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155314_351.jpg" alt="Family pic 12">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155438_5.jpg" alt="Family pic 13">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155449_6.jpg" alt="Family pic 14">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250606_155655_4.jpg" alt="Family pic 15">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\a9fcc0f1706f5b7798282a9333e3be90_0.jpeg" alt="Family pic 16">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\90c83e29015f8b52f0b4a861d47003a3_0.jpeg" alt="Family pic 17">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\0bb3732c45c2a55012730d4f92e5a4b9_0.jpeg" alt="Family pic 18">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\dc1bdf3d93d0d286241983a4aeccc4fa_0.jpeg" alt="Family pic 19">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20241226_145228_107.jpg" alt="Family pic 20">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20241130_174838_112.jpg" alt="Family pic 21">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20240623_192137_299.jpg" alt="Family pic 22">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\received_1179525586390417-1.jpeg" alt="Family pic 23">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20240623_200125_662.jpg" alt="Family pic 24">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\1697410798894.jpg" alt="Family pic 25">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\1751274284058.jpg" alt="Family pic 26">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250109_190207_801.jpg" alt="Family pic 27">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Family\IMG_20250109_190213_075.jpg" alt="Family pic 28">
+    </div>
+    
+    <br><a href="family.html" class="back-btn">₊✩‧₊˚౨ৎ˚₊✩‧₊Back₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged pic">
+    </div>
+    
+    <div id="stars"></div>
+    
+    <script>
+        const galleryImgs = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '✨';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude's personal album - a collection of memories!">
+    <title>Personal Album</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #757C88, #5D6D7E);
+            font-family: 'Fredoka One', cursive;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .back-btn {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #16A085;
+            transform: scale(1.05);
+        }
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: twinkle 4s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\1712376119067.jpg" alt="Personal pic 1">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\1727755178343.jpg" alt="Personal pic 2">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20241226_012037_472.jpg" alt="Personal pic 3">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20241001_172748_047.jpg" alt="Personal pic 4">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20240527_201459_503.jpg" alt="Personal pic 5">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20250714_153753_042.jpg" alt="Personal pic 6">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20241107_230628_639.jpg" alt="Personal pic 7">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20241228_215752_8.jpg" alt="Personal pic 8">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\1740627181206.jpg" alt="Personal pic 9">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Messenger_creation_8B6F674E-11E8-44F7-BB73-4E99EDE4071C.jpeg" alt="Personal pic 10">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Messenger_creation_1F215456-4361-4A07-BC0F-FA5A52532176.jpeg" alt="Personal pic 11">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\received_595162063447694.jpeg" alt="Personal pic 12">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\received_2024222184652151.jpeg" alt="Personal pic 13">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20250110_174930_622.jpg" alt="Personal pic 14">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\1754287615684.jpg" alt="Personal pic 15">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\IMG_20250411_104243_677.jpg" alt="Personal pic 16">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Screenshot_20240706-214348.jpg" alt="Personal pic 17">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Screenshot_20240707-182449.jpg" alt="Personal pic 18">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Screenshot_20240707-182646.jpg" alt="Personal pic 19">
+        <img src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\personal\Screenshot_20250802-183529.jpg" alt="Personal pic 20">
+    </div>
+    
+    <a href="personal.html" class="back-btn">₊✩‧₊˚౨ৎ˚₊✩‧₊Back₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged pic">
+    </div>
+    
+    <div id="stars"></div>
+    
+    <script>
+        const galleryImgs = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '✨';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

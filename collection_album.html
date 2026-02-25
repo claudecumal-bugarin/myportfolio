@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude's Collection Album - pics and memories!">
+    <title>Collection Album</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #757C88, #5D6D7E);
+            font-family: 'Fredoka One', cursive;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .medium {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .small {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .tall {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        .wide {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .back-btn {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #16A085;
+            transform: scale(1.05);
+        }
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: twinkle 4s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            .large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .wide {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img class="large" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20250814-130744.jpg" alt="Collection pic 1">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240518-165611.jpg" alt="Collection pic 2">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240303-185044.png" alt="Collection pic 3">
+        <img class="tall" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240717-161609.jpg" alt="Collection pic 4">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240609-014246.jpg" alt="Collection pic 5">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240613-174100.jpg" alt="Collection pic 6">
+        <img class="wide" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240616-070816.jpg" alt="Collection pic 7">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-154854.jpg" alt="Collection pic 8">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-161524.jpg" alt="Collection pic 9">
+        <img class="large" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240718-044356.jpg" alt="Collection pic 10">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240718-061940.jpg" alt="Collection pic 11">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240623-225223.jpg" alt="Collection pic 12">
+        <img class="tall" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240625-112304.jpg" alt="Collection pic 13">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240625-185339.jpg" alt="Collection pic 14">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240625-191425.jpg" alt="Collection pic 15">
+        <img class="wide" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240625-193917.jpg" alt="Collection pic 16">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-151235.jpg" alt="Collection pic 17">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-163218.jpg" alt="Collection pic 18">
+        <img class="large" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-164813.jpg" alt="Collection pic 19">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-170722.jpg" alt="Collection pic 20">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240626-172347.jpg" alt="Collection pic 21">
+        <img class="tall" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240628-154748.jpg" alt="Collection pic 22">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240628-160859.jpg" alt="Collection pic 23">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240628-163151.jpg" alt="Collection pic 24">
+        <img class="wide" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240630-201024.jpg" alt="Collection pic 25">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240701-180100.jpg" alt="Collection pic 26">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240701-183535.jpg" alt="Collection pic 27">
+        <img class="large" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240701-190710.jpg" alt="Collection pic 28">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240703-134827.jpg" alt="Collection pic 29">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240703-161208.jpg" alt="Collection pic 30">
+        <img class="tall" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240703-220544.jpg" alt="Collection pic 31">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240703-230053.jpg" alt="Collection pic 32">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240625-231041.jpg" alt="Collection pic 33">
+        <img class="wide" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135659.jpg" alt="Collection pic 34">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135707.jpg" alt="Collection pic 35">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135715.jpg" alt="Collection pic 36">
+        <img class="large" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135724.jpg" alt="Collection pic 37">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135727.jpg" alt="Collection pic 38">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240628-163635.jpg" alt="Collection pic 39">
+        <img class="tall" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240628-163750.jpg" alt="Collection pic 40">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240701-190858.jpg" alt="Collection pic 41">
+        <img class="small" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240705-190645.jpg" alt="Collection pic 42">
+        <img class="wide" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20240627-135724.jpg" alt="Collection pic 43">
+        <img class="medium" src="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\3RD QUARTER\Portfolio Website\Collection\Screenshot_20250724-171312.jpg" alt="Collection pic 44">
+    </div>
+    
+    <br><a href="C:\Users\Linnaeus\Documents\CUMAL_LINNAEUS\4TH QUARTER\Portfolio Website\collection.html" class="back-btn">₊✩‧₊˚౨ৎ˚₊✩‧₊Back₊✩‧₊˚౨ৎ˚₊✩‧₊</a>
+    
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged pic">
+    </div>
+    
+    <div id="stars"></div>
+    
+    <script>
+        const galleryImgs = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.textContent = '✨';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 4 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
