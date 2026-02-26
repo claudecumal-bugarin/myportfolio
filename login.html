@@ -77,13 +77,8 @@
     <div id="login-form">
         <h2>Login</h2>
         <form id="login">
-      <div style="position: relative; width: 100%; max-width: 300px;">
-    <input type="password" id="login-password" placeholder="Password" required style="width: 100%; padding-right: 40px;">
-    <span onclick="togglePassword('login-password', this)" 
-          style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
-        👁
-    </span>
-</div>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
         <p class="toggle" onclick="showSignUp()">Don't have an account? Sign Up</p>
@@ -91,81 +86,62 @@
     <div id="signup-form" style="display: none;">
         <h2>Sign Up</h2>
         <form id="signup">
-           <div style="position: relative; width: 100%; max-width: 300px;">
-    <input type="password" id="signup-password" placeholder="Password" required style="width: 100%; padding-right: 40px;">
-    <span onclick="togglePassword('signup-password', this)" 
-          style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
-        👁
-    </span>
-</div>
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
             <button type="submit">Sign Up</button>
         </form>
         <p class="toggle" onclick="showLogin()">Already have an account? Login</p>
     </div>
 
     <script>
-    function showSignUp() {
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('signup-form').style.display = 'block';
-    }
-
-    function showLogin() {
-        document.getElementById('signup-form').style.display = 'none';
-        document.getElementById('login-form').style.display = 'block';
-    }
-
-    function togglePassword(id, element) {
-        const input = document.getElementById(id);
-        if (input.type === "password") {
-            input.type = "text";
-            element.textContent = "🙈";
-        } else {
-            input.type = "password";
-            element.textContent = "👁";
+        function showSignUp() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
         }
-    }
-
-    // Sign Up
-    document.getElementById('signup').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('signup-username').value;
-        const password = document.getElementById('signup-password').value;
-        const accounts = JSON.parse(localStorage.getItem('diaryAccounts')) || {};
-
-        if (accounts[username]) {
-            alert('Username already exists!');
-            return;
+        function showLogin() {
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
         }
 
-        if (username === 'claudebugarin') {
-            accounts[username] = 'kayjameslangkakalampag';
-            alert('Owner account created with default password!');
-        } else {
-            accounts[username] = password;
-        }
-
-        localStorage.setItem('diaryAccounts', JSON.stringify(accounts));
-        localStorage.setItem('currentUser', username);
-        alert('Account created! Logging in...');
-        window.location.href = 'diary_homepage.html';
-    });
-
-    // Login
-    document.getElementById('login').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('login-username').value;
-        const password = document.getElementById('login-password').value;
-        const accounts = JSON.parse(localStorage.getItem('diaryAccounts')) || {};
-
-        if (accounts[username] === password) {
+        // Sign Up
+        document.getElementById('signup').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+            const accounts = JSON.parse(localStorage.getItem('diaryAccounts')) || {};
+            if (accounts[username]) {
+                alert('Username already exists!');
+                return;
+            }
+            // Auto-set password for owner
+            if (username === 'magandaako17') {
+                accounts[username] = 'kayjameslangkakalampag';
+                alert('Owner account created with default password!');
+            } else {
+                accounts[username] = password;
+            }
+            localStorage.setItem('diaryAccounts', JSON.stringify(accounts));
             localStorage.setItem('currentUser', username);
+            alert('Account created! Logging in...');
             window.location.href = 'diary_homepage.html';
-        } else {
-            alert('Invalid username or password!');
-        }
-    });
-</script>
+        });
+
+        // Login
+        document.getElementById('login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const accounts = JSON.parse(localStorage.getItem('diaryAccounts')) || {};
+            if (accounts[username] === password) {
+                localStorage.setItem('currentUser', username);
+                window.location.href = 'diary_homepage.html';
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+    </script>
 </body>
 </html>
+
 
 
