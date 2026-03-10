@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary - Personal</title>
+    <title>Diary - Education</title>
     <style>
         body {
             background: #000000;
@@ -116,11 +116,15 @@
 </head>
 <body>
     <a href="diary_homepage.html" class="back-btn">Back to Diary Home</a>
-    <h1 class="fade-in">Personal Diary</h1>
+    <h1 class="fade-in">Education Journey</h1>
     
     <div id="content" class="fade-in">
         <p class="editable" contenteditable="false">
-            Hi, I'm [Your Name]... [Your bio here]
+            <strong>School:</strong> [Your School Name]<br>
+            <strong>Course:</strong> [Your Course]<br>
+            <strong>Year:</strong> [Your Year Level]<br>
+            <strong>Academic Achievements:</strong><br>
+            [Add your awards, grades, or study notes here...]
         </p>
     </div>
 
@@ -137,7 +141,7 @@
         const user = localStorage.getItem('currentUser');
         
         // Load saved content
-        const saved = localStorage.getItem('diary_personal');
+        const saved = localStorage.getItem('diary_education');
         if (saved) {
             document.querySelector('.editable').innerHTML = saved;
         }
@@ -147,7 +151,7 @@
             document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
             document.querySelectorAll('.editable').forEach(el => {
                 el.addEventListener('blur', () => {
-                    localStorage.setItem('diary_personal', el.innerHTML);
+                    localStorage.setItem('diary_education', el.innerHTML);
                 });
             });
             document.getElementById('comment-input-section').style.display = 'none';
@@ -157,16 +161,16 @@
         function addComment() {
             const comment = document.getElementById('comment-input').value;
             if (comment) {
-                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                const comments = JSON.parse(localStorage.getItem('comments_education')) || [];
                 comments.push({ user, comment, date: new Date().toLocaleString(), id: Date.now() });
-                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                localStorage.setItem('comments_education', JSON.stringify(comments));
                 document.getElementById('comment-input').value = '';
                 loadComments();
             }
         }
 
         function loadComments() {
-            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            const comments = JSON.parse(localStorage.getItem('comments_education')) || [];
             const list = document.getElementById('comments-list');
             list.innerHTML = comments.map((c, index) => {
                 let actions = '';
@@ -192,9 +196,9 @@
 
         function saveEdit(index) {
             const newComment = document.getElementById(`edit-${index}`).value;
-            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            const comments = JSON.parse(localStorage.getItem('comments_education')) || [];
             comments[index].comment = newComment;
-            localStorage.setItem('comments_personal', JSON.stringify(comments));
+            localStorage.setItem('comments_education', JSON.stringify(comments));
             loadComments();
         }
 
@@ -204,9 +208,9 @@
 
         function deleteComment(index) {
             if (confirm('Delete this comment?')) {
-                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                const comments = JSON.parse(localStorage.getItem('comments_education')) || [];
                 comments.splice(index, 1);
-                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                localStorage.setItem('comments_education', JSON.stringify(comments));
                 loadComments();
             }
         }
