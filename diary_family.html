@@ -12,6 +12,14 @@
             text-align: center;
             padding: 20px;
             position: relative;
+            overflow-x: hidden;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .back-btn {
             position: fixed;
@@ -26,33 +34,60 @@
             font-size: 1em;
             text-decoration: none;
             transition: all 0.3s;
+            z-index: 100;
         }
         .back-btn:hover {
             background: #cc0000;
             transform: scale(1.05);
+            box-shadow: 0 0 15px #ff0000;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #ff0000;
+            margin-bottom: 30px;
         }
         .editable {
             border: 1px dashed #ff0000;
-            padding: 10px;
+            padding: 15px;
             margin: 10px 0;
+            background: #111;
+            min-height: 100px;
+            transition: all 0.3s;
+        }
+        .editable:hover {
+            background: #222;
+            box-shadow: 0 0 10px #ff0000;
         }
         .comment-section {
             margin-top: 50px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
         }
         textarea {
             width: 100%;
-            height: 100px;
-            background: #333;
+            max-width: 500px;
+            height: 80px;
+            background: #222;
             color: white;
             border: 1px solid #ff0000;
+            padding: 10px;
+            border-radius: 5px;
+            resize: none;
         }
         button {
             background: #ff0000;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
-            margin: 5px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #cc0000;
+            box-shadow: 0 0 10px #ff0000;
         }
         .comments {
             margin-top: 20px;
@@ -61,13 +96,14 @@
             margin: 0 auto;
         }
         .comment {
-            background: #333;
-            padding: 10px;
+            background: #222;
+            padding: 15px;
             margin: 10px 0;
-            border-radius: 5px;
+            border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 3px solid #ff0000;
         }
         .comment-content {
             flex: 1;
@@ -76,19 +112,20 @@
             display: flex;
             gap: 5px;
         }
-        .owner-hide {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <a href="diary_homepage.html" class="back-btn">Back to Diary Home</a>
-    <h1>Family Diary</h1>
-    <div id="content">
-        <p class="editable" contenteditable="false">Hi, I’m Claude... [Your bio here]</p>
-        <!-- Add more sections -->
+    <h1 class="fade-in">Family Diary</h1>
+    
+    <div id="content" class="fade-in">
+        <p class="editable" contenteditable="false">
+            <strong>My Family:</strong><br>
+            [Add your family members, photos, or memories here...]
+        </p>
     </div>
-    <div class="comment-section">
+
+    <div class="comment-section fade-in">
         <h2>Comments</h2>
         <div id="comment-input-section">
             <textarea id="comment-input" placeholder="Add a comment..."></textarea>
@@ -100,38 +137,37 @@
     <script>
         const user = localStorage.getItem('currentUser');
         
-        // Load saved content for all users
-        const saved = localStorage.getItem('diary_personal');
+        // Load saved content - FAMILY ONLY
+        const saved = localStorage.getItem('diary_family');
         if (saved) {
             document.querySelector('.editable').innerHTML = saved;
         }
         
+        // Owner can edit
         if (user === 'magandaako17') {
             document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
-            // Save edits
             document.querySelectorAll('.editable').forEach(el => {
                 el.addEventListener('blur', () => {
-                    localStorage.setItem('diary_personal', el.innerHTML);
+                    localStorage.setItem('diary_family', el.innerHTML);
                 });
             });
-            // Hide comment input for owner
             document.getElementById('comment-input-section').style.display = 'none';
         }
 
-        // Comments
+        // Comments - FAMILY ONLY
         function addComment() {
             const comment = document.getElementById('comment-input').value;
             if (comment) {
-                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                const comments = JSON.parse(localStorage.getItem('comments_family')) || [];
                 comments.push({ user, comment, date: new Date().toLocaleString(), id: Date.now() });
-                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                localStorage.setItem('comments_family', JSON.stringify(comments));
                 document.getElementById('comment-input').value = '';
                 loadComments();
             }
         }
 
         function loadComments() {
-            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            const comments = JSON.parse(localStorage.getItem('comments_family')) || [];
             const list = document.getElementById('comments-list');
             list.innerHTML = comments.map((c, index) => {
                 let actions = '';
@@ -157,9 +193,9 @@
 
         function saveEdit(index) {
             const newComment = document.getElementById(`edit-${index}`).value;
-            const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+            const comments = JSON.parse(localStorage.getItem('comments_family')) || [];
             comments[index].comment = newComment;
-            localStorage.setItem('comments_personal', JSON.stringify(comments));
+            localStorage.setItem('comments_family', JSON.stringify(comments));
             loadComments();
         }
 
@@ -169,9 +205,9 @@
 
         function deleteComment(index) {
             if (confirm('Delete this comment?')) {
-                const comments = JSON.parse(localStorage.getItem('comments_personal')) || [];
+                const comments = JSON.parse(localStorage.getItem('comments_family')) || [];
                 comments.splice(index, 1);
-                localStorage.setItem('comments_personal', JSON.stringify(comments));
+                localStorage.setItem('comments_family', JSON.stringify(comments));
                 loadComments();
             }
         }
